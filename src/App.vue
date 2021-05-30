@@ -1,9 +1,18 @@
+<script>
+import Sidebar from '@/components/sidebar/Sidebar'
+import { sidebarWidth } from '@/components/sidebar/state'
+export default {
+  components: { Sidebar },
+  setup() {
+    return { sidebarWidth }
+  }
+}
+</script>
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <Sidebar />
+  <div :style="{ 'margin-left': sidebarWidth }">
+    <router-view />
   </div>
-  <router-view />
 </template>
 
 <style>
